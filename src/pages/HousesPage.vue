@@ -8,7 +8,6 @@
       </div>
     </div>
     <div class="row">
-      <!-- REVIEW PROPS -->
       <House v-for="house in houses" :key="house.id" :house="house" class="col-lg-3" />
     </div>
 
