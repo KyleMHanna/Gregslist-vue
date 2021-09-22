@@ -1,7 +1,6 @@
 <template>
-  <form class="bg-white rounded p-3 shadow visually-hidden"
-        onsubmit="app.housesController.addHouse()"
-        id="house-form"
+  <form @submit.prevent="handleSubmit"
+        class="bg-white rounded p-3 shadow visually-hidden"
   >
     <div class="form-group">
       <label for="price" class="">Price:</label>
@@ -13,7 +12,7 @@
     </div>
     <div class="form-group">
       <label for="year" class="">year:</label>
-      <input type="number" class="form-control" name="year" id="year">
+      <input v-model="editable.year" type="number" class="form-control" name="year" id="year">
     </div>
 
     <div class="form-group">
@@ -54,8 +53,37 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
+import { House } from '../models/House.js'
+import { watchEffect } from '@vue/runtime-core'
+import { housesService } from '../services/HousesService.js'
+import Pop from '../utils/Pop.js'
 export default {
+  props: {
+    house: { type: House, default: () => new House() }
+  },
+  setup(props) {
+    const editable = ref({})
+    watchEffect(() => {
+      editable.value = { ...props.house }
+    })
+    return {
+      editable,
+      async handleSubmit() {
+        try {
+          if (editable.value.id) {
+            await housesService.editHouse(editable.value)
+          } else {
+            await housesService.createHouse(editable.value)
+          }
+          editable.value = {}
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
 
+    }
+  }
 }
 </script>
 
