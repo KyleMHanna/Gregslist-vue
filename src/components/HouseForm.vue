@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit"
-        class="bg-white rounded p-3 shadow visually-hidden"
+        class="bg-white rounded p-3 shadow"
   >
     <div class="form-group">
       <label for="price" class="">Price:</label>
@@ -19,6 +19,7 @@
       <label for="bedrooms" class="">Bedrooms:</label>
       <input v-model="editable.bedrooms" type="number" class="form-control" name="bedrooms" id="bedrooms">
     </div>
+
     <div class="form-group">
       <label for="bathrooms" class="">Bathrooms:</label>
       <input v-model="editable.bathrooms" type="number" class="form-control" name="bathrooms" id="bathrooms">
