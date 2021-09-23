@@ -3,7 +3,7 @@ import { Job } from '../models/Job.js'
 import { api } from './AxiosService.js'
 
 class JobsService {
-  async getjobs() {
+  async getJobs() {
     AppState.jobs = []
     const res = await api.get('api/jobs')
     AppState.jobs = res.data.map(j => new Job(j))
