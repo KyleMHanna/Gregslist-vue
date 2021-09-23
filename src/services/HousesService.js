@@ -17,7 +17,7 @@ class HousesService {
 
   async createHouse(house) {
     const res = await api.post('api/houses', house)
-    AppState.Houses.push(new House(res.data))
+    AppState.houses.push(new House(res.data))
   }
 
   async editHouse(house) {

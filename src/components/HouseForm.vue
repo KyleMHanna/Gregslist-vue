@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit"
-        class="bg-white rounded p-3 shadow"
+        class="bg-white rounded p-3 shadowc"
   >
     <div class="form-group">
       <label for="price" class="">Price:</label>
