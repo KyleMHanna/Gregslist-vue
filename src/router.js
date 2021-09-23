@@ -38,6 +38,11 @@ const routes = [
     component: loadPage('HousePage')
   },
   {
+    path: '/jobs/:jobId',
+    name: 'Job',
+    component: loadPage('JobPage')
+  },
+  {
     path: '/jobs',
     name: 'Jobs',
     component: loadPage('JobsPage')
