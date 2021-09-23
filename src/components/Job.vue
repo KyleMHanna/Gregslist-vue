@@ -2,7 +2,7 @@
   <div class="mb-4 listing">
     <router-link :to="{name: 'Job', params: { jobId: job.id }}">
       <div class="card selectable">
-        <img :src="job.jobTitle" alt="listing image" class="rounded">
+        <span> {{ job.jobTitle }}</span>
         <div class="card-body">
           <h5 class="d-flex justify-content-between">
             <span>$ {{ job.rate }}</span>
