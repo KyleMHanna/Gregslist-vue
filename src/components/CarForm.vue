@@ -2,16 +2,12 @@
   <form @submit.prevent="handleSubmit">
     <div class="form-group">
       <label for="make" class="">Make:</label>
-      <select v-model="editable.make" name="make" id="make" required class="form-control">
-        <option disabled selected value="">
-          Please Choose your car make
-        </option>
-        <option>honda</option>
-        <option>hyundai</option>
-        <option>tesla</option>
-        <option>toyota</option>
-        <option>other</option>
-      </select>
+      <input v-model="editable.make"
+             name="make"
+             id="make"
+             required
+             class="form-control"
+      >
     </div>
     <div class="form-group">
       <label for="model" class="">Model:</label>
